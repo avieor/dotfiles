@@ -1,3 +1,4 @@
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
 " set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -55,7 +56,7 @@ filetype plugin indent on    " required
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "
 "  If you don't understand a setting in here, just type ':h setting'.
-
+Plugin 'Valloric/YouCompleteMe'
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -79,6 +80,11 @@ set expandtab
 set number
 execute pathogen#infect()
 call pathogen#helptags()
-
-
-autocmd vimenter * NERDTree
+if has("gui_running")
+  syntax on
+  set hlsearch
+  colorscheme macvim
+  set bs=2
+  set ai
+  set ruler
+endif
